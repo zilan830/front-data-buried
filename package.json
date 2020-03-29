@@ -15,6 +15,10 @@
   "pre-commit": [
     "lint"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zilan830/front-data-buried.git"
+  },
   "author": "Lara",
   "license": "MIT",
   "devDependencies": {
