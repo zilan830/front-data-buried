@@ -6,6 +6,7 @@ tslint.json
 tsconfig.json
 .babelrc
 .eslintrc.js
+.eslintignore
 .prettierrc.js
 webpack.dev.config.js
 webpack.prod.config.js
@@ -20,3 +21,4 @@ src/
 examples/
 .vscode/
 index.ts
+.history/
