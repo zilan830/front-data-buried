@@ -1,3 +1,6 @@
+
+/* eslint-disable */
+
 const webpack = require('webpack')
 const path = require('path')
 const merge = require('webpack-merge')
@@ -53,7 +56,7 @@ module.exports = merge(baseWebpackConfig, {
 	plugins: [
 		// 热更新相关
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
+		//new webpack.HotModuleReplacementPlugin(),package.json 用了--hot,不用添加
 		new webpack.NamedModulesPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlWebpackPlugin({

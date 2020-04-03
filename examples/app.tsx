@@ -1,14 +1,14 @@
-import * as React from 'react'
+import React, { PureComponent } from 'react'
 import get from './../src/getAllEvent'
 
-console.log("get",get())
+//console.log("get", get())
 
-export interface HelloProps { compiler: string; framework: string }
+//export interface HelloProps { compiler: string; framework: string }
 
-export class Hello extends React.Component<HelloProps, {}> {
+export class Hello extends PureComponent {
 
     render() {
 
-        return <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
+        return <h1>111Hello sssfrom sss and!</h1>;
     }
 }
