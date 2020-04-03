@@ -10,6 +10,7 @@ const apis: ApiObj = {}
 
 
 apis.postData = (obj: any): any => {
+    console.log("obj",obj)
    const {url,root,...rest} = obj
     const param: RequestParams = {
         url,
