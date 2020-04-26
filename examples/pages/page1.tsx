@@ -11,6 +11,9 @@ class PageOne extends PureComponent {
         return (
             <div>
                 <p>PageOne</p>
+                <div className='button'>
+                    这是个假按钮
+                </div>
                 <div>
                     <Link to='/page2'>到pageTwo</Link>
                 </div>
