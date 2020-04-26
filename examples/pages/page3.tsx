@@ -8,12 +8,12 @@ const PageTwo = (): any => {
 
     return (
         <div>
-            <p>PageTwo</p>
+            <p>PageThree</p>
             <div>
                 <Link to='/page1'>到pageOne</Link>
             </div>
             <div>
-                <Link to='/page3'>到pageThree</Link>
+                <Link to='/page2'>到pageTwo</Link>
             </div>
         </div>
     );

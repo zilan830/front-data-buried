@@ -21,6 +21,7 @@ export interface OptionsObject {
     [key: string]: any;
 }
 
+//埋点返回数据
 export interface ContentObject {
     offset_x: number;//点击位移x
     offset_y: number;//点击位移y

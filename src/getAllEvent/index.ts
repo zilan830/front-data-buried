@@ -65,8 +65,8 @@ const getAllEvent = (infoObj: OptionsObject): void => {
         //eventParams.events = contentParams
         eventParams.events = initClick('get')
         eventParams.up_time = Date.now()
-        Api.postData({ ...eventParams }).then((res: any) => {
-            console.log("res....", res)
+        Api.postData({ ...eventParams }).then(() => {
+            //console.log("res....", res)
         }).catch((e: any) => {
             console.log("e", e)
         })
@@ -96,8 +96,9 @@ const getAllEvent = (infoObj: OptionsObject): void => {
             eventParams.page_title = preTitle //若是初始化页面，则需要赋值当前title
         }
         eventParams.up_time = Date.now()
-        Api.postData({ ...eventParams }).then((res: any) => {
-            console.log("res....", res)
+
+        Api.postData({ ...eventParams }).then(() => {
+            //console.log("res....", res)
             clearData(preTitle, nowTitle)
             initClick('end')
         }).catch((e: any) => {

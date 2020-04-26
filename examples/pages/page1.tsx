@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 class PageOne extends PureComponent {
 
-    componentDidMount(){
+    componentDidMount() {
         document.title = 'page1'
     }
 
@@ -11,7 +11,12 @@ class PageOne extends PureComponent {
         return (
             <div>
                 <p>PageOne</p>
-            <Link to='/page2'>到pageTwo</Link>
+                <div>
+                    <Link to='/page2'>到pageTwo</Link>
+                </div>
+                <div>
+                    <Link to='/page3'>到pageThree</Link>
+                </div>
             </div>
         );
     }
