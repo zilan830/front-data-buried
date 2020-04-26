@@ -28,7 +28,7 @@ export const WatchClick = (): any => {
 
                 })
             }
-            const hasBusiness = pathArray.length > 0 && pathArray.filter(item => item.includes('btn') || item.includes('menu')).length > 0
+            const hasBusiness = pathArray.length > 0 && pathArray.filter(item => item.includes('button') || item.includes('menu') || item.includes('tab') || item.includes('btn')).length > 0
             const contentObj: ContentObject = {
                 // eslint-disable-next-line @typescript-eslint/camelcase
                 offset_x: offsetX,
@@ -41,7 +41,7 @@ export const WatchClick = (): any => {
                     // eslint-disable-next-line @typescript-eslint/camelcase
                     to_element: pathArray,
                     // eslint-disable-next-line @typescript-eslint/camelcase
-                    h_b: pathArray.length > 0 && pathArray.filter(item => item.includes('button') || item.includes('menu') || item.includes('tab') || item.includes('btn')).length > 0
+                    h_b: hasBusiness
                 }
             }
             //console.log("contentObj", contentObj)
