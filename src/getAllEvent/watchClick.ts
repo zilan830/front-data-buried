@@ -1,7 +1,7 @@
 import { EventsObject, ContentObject } from './../utils/defaultParam'
 
 
-const textReg = /↵|^().{10,}/g
+//const textReg = /↵|^().{10,}/g
 
 export const WatchClick = (): any => {
     const contentParams: Array<EventsObject> = []
@@ -13,7 +13,8 @@ export const WatchClick = (): any => {
         if (JSON.stringify(e) !== '{}') {
             //console.log("进来了")
             const { offsetX, offsetY, path, target: { innerText } } = e
-            const textArray = innerText.match(textReg)
+            //const textArray = innerText.match(textReg)
+            //console.log("textArray",textArray)
             const pathArray: Array<string> = []
 
             if (path.length > 0) {
@@ -27,6 +28,7 @@ export const WatchClick = (): any => {
 
                 })
             }
+            const hasBusiness = pathArray.length > 0 && pathArray.filter(item => item.includes('btn') || item.includes('menu')).length > 0
             const contentObj: ContentObject = {
                 // eslint-disable-next-line @typescript-eslint/camelcase
                 offset_x: offsetX,
@@ -35,7 +37,7 @@ export const WatchClick = (): any => {
                 element: {
                     //判断inntext 长度是否大于10 或者含有 ↵ 回车键。如果有，则不保存
                     // eslint-disable-next-line @typescript-eslint/camelcase
-                    inner_html: textArray && textArray.length > 0 ? innerText : '',
+                    inner_html: hasBusiness ? innerText : '',
                     // eslint-disable-next-line @typescript-eslint/camelcase
                     to_element: pathArray,
                     // eslint-disable-next-line @typescript-eslint/camelcase
