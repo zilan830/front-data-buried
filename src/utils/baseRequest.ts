@@ -53,7 +53,7 @@ const baseRequest = (requestObj: RequestParams): any => {
             }
         }
     }).catch(e => {
-        console.log("e",e)
+        //console.log("e",e)
         return Promise.reject(new Error('请求失败'))
       })
 

@@ -19,7 +19,7 @@ class Dep {
                 try {
                     e.update.apply(e) //触发订阅者更新函数
                 } catch (err) {
-                    console.error(err)
+                    //console.error(err)
                 }
             }
         })

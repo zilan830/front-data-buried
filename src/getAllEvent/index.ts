@@ -18,7 +18,7 @@ import { WatchClick } from './watchClick'
 
 const getAllEvent = (infoObj: OptionsObject): void => {
 
-    console.log("infoObj", infoObj)
+    //console.log("infoObj", infoObj)
 
     //初次加载
     // window.onload = () => {
@@ -68,7 +68,7 @@ const getAllEvent = (infoObj: OptionsObject): void => {
         Api.postData({ ...eventParams }).then(() => {
             //console.log("res....", res)
         }).catch((e: any) => {
-            console.log("e", e)
+            //console.log("e", e)
         })
         //return true
     }
