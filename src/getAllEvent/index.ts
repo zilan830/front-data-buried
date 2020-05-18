@@ -17,6 +17,7 @@ import { WatchClick } from './watchClick'
  */
 
 const getAllEvent = (infoObj: OptionsObject): void => {
+    let timer = null
 
     //console.log("infoObj", infoObj)
 
@@ -77,6 +78,7 @@ const getAllEvent = (infoObj: OptionsObject): void => {
     const config = { childList: true }
 
     const clearData = (preTitle: string, nowTitle: string): void => {
+        //console.log("initClick('get')", initClick('get'))
         //无论成功与否都需要清空相关数据
         //清空event数组
         contentParams.length = 0
@@ -85,30 +87,44 @@ const getAllEvent = (infoObj: OptionsObject): void => {
         eventParams.page_title = nowTitle //因为是变化后的数据整理，因此传输的数据内容是上个title的数据
     }
 
+    const sendData = ({ eventParams, preTitle, nowTitle }): void => {
+        Api.postData({ ...eventParams }).then(() => {
+            //console.log("res....", res)
+            clearData(preTitle, nowTitle)
+            initClick('end')
+        }).catch((e: any) => {
+            //console.log("e", e)
+            clearData(preTitle, nowTitle)
+            initClick('end')
+
+        })
+    }
+
     //监听document.title变化
     const callback = (mutationsList: any): void => {
         //处理dom数据，根据变化前后判断，传输数据内容
         const { preTitle, nowTitle } = HandleDomData(mutationsList)
         //整合数据
         //eventParams.events = contentParams
-        eventParams.events = initClick('get')
+
         if (!eventParams.pre_title) {
             eventParams.page_title = preTitle //若是初始化页面，则需要赋值当前title
         }
         eventParams.up_time = Date.now()
+        timer = setTimeout(() => {
+            eventParams.events = initClick('get')
+            //console.log("eventParams看看", eventParams)
+            sendData({ eventParams, preTitle, nowTitle })
 
-        Api.postData({ ...eventParams }).then(() => {
-            //console.log("res....", res)
-            clearData(preTitle, nowTitle)
-            initClick('end')
-        }).catch((e: any) => {
-            console.log("e", e)
-            clearData(preTitle, nowTitle)
-            initClick('end')
+        }, 0)
 
-        })
+
 
     }
+
+
+
+
 
     const observer = new MutationObserver(callback)
     observer.observe(targetNode, config)
